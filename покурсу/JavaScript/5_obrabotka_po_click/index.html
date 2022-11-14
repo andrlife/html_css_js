@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <hr>
+    <h2 id="h2">Типы событий JS</h2>
+    <ul onclick="checkTarget(event)">
+        <li ><b>click</b> - нажатие левой клавиши мыши</li>
+        <li><b>mouseover/mouseout</b> - мыщи наводиться на (покидает) элемент</li>
+        <li><b>keydown/keyup</b> - нажатие/отпускание клавиши на клавиатуре</li>
+        <li><b>focus</b> - установк фокуса на элемент, например, input</li>
+        <li><b>submit</b> - событие отправки формы</li>
+        <li>...</li>
+    </ul>
+    <br>
+    <hr>
+    <h2>Обработка события</h2>
+    <ul onclick="AleRt()">
+        <li onclick="alert('Ура получилось! onclick сработал')">Через атрибут тега - <b>onevent</b> (например, onclick, onmouseover, onsubmit</li>
+        <li id="test1">Вызов колбэка</liш>
+        <li>Выборка ноды и добавление к ней события <b>onevent</b> (по ссылке)</li>
+        <li>Использование "лиснеров" <b id="test2">addEventListener, removeEventListener</b></li>
+    </ul>
+    <hr>
+    <h2>Доступ к содержимому ноды</h2>
+    <ul>
+        <li>Через контекст <b>this</b></li>
+        <li>Через обьект события</li>
+    </ul>
+    <hr>
+    <script src="./js/skript.js"></script>
+</body>
+</html>
