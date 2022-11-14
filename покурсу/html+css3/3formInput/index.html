@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forn Basic</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <form action="sent.html" method="post">         <!-- POST передает данные в теле запроса -->
+        <input type="text"
+        placeholder="Введите Ваше Имя">
+        <input type="submit"
+        value="Отправить">
+    </form>    
+
+    <br>
+
+    <form method="get">                                 <!-- GET передает данные в URL в виде пар "имя-значение" (другими словами, через ссылку) -->
+        <input name="name" type="text"
+        placeholder="Введите Ваше Имя">
+        <br>
+        <input name="pass" type="password"
+        placeholder="Введите пароль">
+        <input type="submit"
+        value="Отправить">
+    </form>
+
+    <input type="checkbox" name="condition"
+    id="condition">Я принимаю условия соглашения
+
+    <br>
+    <br>
+
+    <input type="radio" name="option"
+    value="JS" id="js"> <label for="js">JS</label>
+    <!-- либо -->
+    <label>
+    <input type="radio" name="option"
+    value="php" id="php">PHP
+    </label>
+
+    <input type="radio" name="option"
+    value="Python" checked>Python    <!-- checked это выдиление по умолчанию-->
+    <br>
+    <br>
+
+    <!--Выпадающее значение-->
+
+    <select name="select">
+        <option value="value1">Значение 1</option>
+        <option value="value2" selected>Значение 2</option>
+        <option value="value3">Значение 3</option>
+    </select>
+
+    <br>
+    <br>
+
+  <!--Поле ввода текста-->
+
+    <!-- <textarea name="textarea" cols="30" rows="5" minlength="10" maxlength="50">
+    Wraite something here
+    </textarea> -->
+
+    <textarea name="textarea" minlength="10" maxlength="250w">Wraite something here
+        </textarea>
+
+          <!--Выбор из списка-->
+        <form>
+            <label for="language">Язык программирования</label>
+            <input type="text" id="language" name="language" list="languages">
+            <datalist id="languages">
+                <option value="js" label="JavaScript">JavaScript</option>
+                <option value="php"></option>
+                <option value="ruby"></option>
+                <option value="python"></option>
+            </datalist>
+        </form>
+
+
+
+
+
+
+</body>
+</html>
