@@ -1,0 +1,77 @@
+/* редактор анимаций https://animista.net/ */
+
+
+.block {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(255, 0, 0);
+
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+    /* задаем имя анимации */
+    animation-name: moveForward;
+    animation-duration: 5s;
+
+    /* задержка анимации */
+    animation-delay: 2s; 
+
+    /* количество повторений анимации  */
+    /* animation-iteration-count: infinite; бесконечно */
+    animation-iteration-count: 2;
+
+    /* направление */
+    animation-direction: alternate;
+
+    /* плавность анимации */
+    /* animation-timing-function: ease-in; */
+
+    /* https://cubic-bezier.com/ */
+    animation-timing-function: cubic-bezier(.54,1.86,.5,-0.95);
+
+    /* оставить обьект в конце анимации без возвращения на исходное положение */
+    /* animation-fill-mode: forwards; */
+
+}
+
+
+/* поставить на паузу к примеру при навидении */
+
+/* .block:hover {
+    animation-play-state: paused;
+} */
+
+
+
+
+/* создаем анимацию для animation-name: moveForward; */
+
+/* from от и to до */
+
+/* @keyframes moveForward {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+} */
+
+@keyframes moveForward {
+    0% {
+        left: 0;
+        top: 0;
+    }
+    25% {
+        top: 100px;
+        background-color: rgb(34, 229, 16);
+    }
+    75% {
+        top: 0;
+        background-color: rgb(242, 255, 0);
+    }
+    100% {
+        left: 100%;
+        background-color: rgb(255, 0, 0);
+    }
+}
