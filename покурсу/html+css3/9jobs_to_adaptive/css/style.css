@@ -1,0 +1,133 @@
+/* https://developer.mozilla.org/ru/docs/Web/CSS/Media_Queries/Using_media_queries */
+
+/* https://getbootstrap.com/docs/4.1/layout/overview/ */
+
+
+
+/* /* min-width пишеться от малого к большему */
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+    
+    
+ }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+    
+    
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+    
+    
+}
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+   
+
+ } 
+
+
+
+ /* max-width наоборот пишеться от большого к меньшему */
+
+ /* // Large devices (desktops, less than 1200px) */
+ @media (max-width: 1199.98px) { 
+    
+
+  }
+
+ /* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+    
+
+ }
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { 
+    
+
+ }
+
+ /* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    
+
+ }
+
+
+
+
+/* ЛОГИЧЕСКИЕ ОПЕРАТОРЫ */
+
+/* and эсли выполняеться и это и это условие то применяються стили */
+@media print and (max-width: 1199.98px) { 
+    
+
+ }
+
+/* или */
+
+@media (min-height: 400px) and (max-width: 1199.98px) { 
+    
+
+ }
+
+
+/* Диапозоны от такого до такого
+
+тут последовательность не важна
+как в пред идущем минимальном либо максимальном медиа размерах
+
+
+в данном примере and это диапазон между минимальным и максимальным разрешением
+*/
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    
+
+ }
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    
+
+ }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+
+ }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+
+ }
+
+
+/* не для принтеров и для этой ширины */
+@media not print and (max-width: 575.98px) { 
+    
+
+ }
+
+
+/* не для принтеров, для этой ширины */
+@media not print, (max-width: 575.98px) { 
+    
+
+ }
