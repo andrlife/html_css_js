@@ -1,0 +1,47 @@
+img {
+    transition: all 1s ease-in;
+    /* transition: 1s;
+    transition-duration: 0.5s;
+    /* transition-property: all;
+    filter: none; */
+
+    /* transition-timing-function: ease; */ 
+
+    /* backface-visibility: hidden; */
+}
+
+img:hover {
+
+    /* чтобы развернуть и не видеть что по зади изображения
+    backface-visibility: hidden; в имг параметре */
+    transform: perspective(300px) rotateY(180deg);
+
+    /* filter: sepia(1); */
+
+    /* Вращеие в градусах deg или 1 turn поворот */
+    /* transform: rotate(-45deg); */
+
+    /* смещение относительно правого верхнего угла */
+    /* transform-origin: top right;  */
+
+    /* Масштаб */
+    /* transform: scale(0.8); */
+    /* scale(1, 0.5); первое значение по х второе по у */
+    /* transform: scale(1, 0.5);  */
+
+    /* Дивопмация или искажение в градусах */
+    /* transform:  skew(22deg); */
+
+    /* перемещение */
+    /* transform:  translate(50px, 50px ); */
+    /* transform: translateX(10px); */
+    /* transform: translateX(10px) scale(1.2) rotate(45deg); */
+    /* transform: perspective(300px) rotateY(45deg); */
+
+
+
+
+
+
+
+}
