@@ -1,0 +1,66 @@
+@import "./nocompile/normalize";
+@import "./nocompile/vars";
+
+a {
+    color: $linkColor;
+    font-size: 1rem;
+
+    &:hover {
+        color: $linkHoverColor;
+    }
+
+    span {
+        border-bottom: 1px solid magenta;
+    }
+}
+
+// .product{
+//     .product__name { }
+//     .product__price { }
+
+// }
+
+
+.product{
+    margin: 0 auto;
+    &__name {
+        font-size: 2rem;
+     }
+    &__price { 
+        font-size: 1.5rem;
+    }
+}
+
+
+.header {
+    margin: 0 auto;
+    &__name {
+        font-size: 2rem;
+     }
+    &__title { 
+        font-size: 1.2rem;
+    }
+}
+
+h1 {
+    font-size: $h1size;
+}
+
+
+// калькуляция
+
+// div {
+//     width: calc();
+// }
+
+div {
+    width: 200px + 10;
+}
+
+
+button {
+    // color: lighten($linkColor, 20%); // сделает на 20% светлее звданный цвет
+    color: darken($linkColor, 20%); //сделает  на 20% темнее
+    background-color: transparentize($linkColor, 0.2); //сделает по прозрачнее цвет
+    background-color: opacify(rgba(60, 255, 0, 0.3), 0.2); // станет мение прозрачным
+}
