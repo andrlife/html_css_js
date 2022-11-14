@@ -1,0 +1,49 @@
+.subscribtion {
+    background-color: #aaa;
+    width: 500px;
+    padding: 10px 20px;
+    color: white;
+}
+
+.subscribtion__filed {
+    display: flex;
+}
+
+.subscribtion__filed:nth-child(n+2) {
+    margin-top: 15px;
+}
+
+.subscribtion__filed input {
+    flex-grow: 1;
+    margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.subscribtion__filed input:focus {
+    border-bottom-color: rgb(197, 205, 50);
+}
+
+.subscribtion__filed input:invalid {
+    border-bottom-color: rgb(255, 39, 1);
+}
+
+.subscribtion__submit {
+    margin-top: 20px;
+    background-color: transparent;
+    padding: 10px 20px;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+}
+
+.subscribtion__submit:hover {
+    background-color: wheat;
+}
+
+
+input[type="submit"]:disabled {
+    opacity: 0.5;
+}
