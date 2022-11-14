@@ -1,0 +1,78 @@
+.filter {
+    margin: 0 auto;
+    width: 80%;
+    background-color: rgb(208, 208, 208);
+    border: 1px solid rgb(186, 137, 234);
+}
+
+.filter-btns {
+    display: flex;
+    justify-content: center;
+    margin: 15px 10px;
+    
+
+}
+
+.filter-btns__item {
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+}
+
+.filter-btns__item:hover,
+.filter-btns__item:focus {
+    color: blue;
+}
+
+
+.active {
+    color: blue;
+}
+
+select {
+    width: 100px;
+    height: 30px;
+    background-color: antiquewhite;
+    display: none;
+}
+
+
+.all {
+    width: 250px;
+    height: 140px;
+    border: 1px solid rgba(0, 0, 0, 0.435);
+    margin: 10px;
+}
+
+.filter-contents {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.rotate-hor-center {
+	animation: rotate-hor-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@keyframes rotate-hor-center {
+    0% {
+      transform: rotateX(0);
+    }
+    100% {
+      transform: rotateX(-360deg);
+    }
+  }
+
+
+@media (max-width: 700px) {
+    select {
+        display: block;
+    }
+
+    .filter-btns__item {
+        display: none;
+    }
+}
+
+
