@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 200vh;
+            padding-top: 200px;
+        }
+        .text{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="my-paroller text" data-paroller-factor="0.3" data-paroller-type="foreground" data-paroller-direction="horizontal">
+        <img src="hat.png" alt="hat" width="200px" height="250px">
+    </div>
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <!--paroller.js-->
+    <script src="jquery.paroller.min.js"></script>
+<script>
+    $('.my-paroller').paroller();
+        
+</script>
+</body>
+</html>
