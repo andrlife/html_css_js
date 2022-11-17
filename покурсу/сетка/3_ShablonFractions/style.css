@@ -1,0 +1,43 @@
+body {
+    color: white;
+}
+
+.container {
+    display: grid;
+    gap: 10px 20px; /*1е значение для вертикали 2е для горизонтали  */
+    /* либо отдельно прописать */
+    /* column-gap: 20px; */
+    /* row-gap: 20px; */
+
+    /* grid-template-columns: 300px 300px 300px; */
+    /* grid-template-columns: repeat(3, 300px); */
+    /* grid-template-columns: 200px 1fr 200px; */
+    /* grid-template-columns: 200px 1fr 200px 2fr; */
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 300px 80px; */
+    /* если для рядов делать то тут больше подойдет значение auto */
+    grid-template-rows: repeat(3, auto);
+}
+
+
+.container > * {
+    background-color: blue;
+    padding: 1rem;
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+
+.item:nth-child(3) {
+    order: -1;
+    grid-column: 2 / span 2; /* занять 2 колонки во 2м итеме*/
+    grid-row: 1 / span 3;
+}
+
+/* .item:nth-child(3) { 3-й по счету итем
+     order: 2; итем станет последним 
+    order: -1;  item 3 станет первым 
+} */
+
+/* .item:nth-child(9) { 
+    order: -2; 
+} */
