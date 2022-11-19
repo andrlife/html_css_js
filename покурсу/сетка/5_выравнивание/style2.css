@@ -1,0 +1,36 @@
+body {
+    color: white;
+}
+
+.conteiner {
+    display: grid;
+    gap: 10px 20px;
+    border: 1px solid black;
+    height: 900px;
+    grid-template: 350px 100px / 100px 300px 100px;
+    align-items: center;
+    align-content: center;
+  
+}
+
+.conteiner > * {
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+header {
+    background-color: greenyellow;
+}
+
+article {
+    background-color: rgb(47, 255, 241);
+}
+
+aside {
+    align-self: start;
+    background-color: rgb(210, 47, 255);
+}
+
+footer {
+    background-color: rgb(241, 255, 47);
+}
