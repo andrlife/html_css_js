@@ -1,0 +1,48 @@
+body {
+    color: white;
+}
+
+.conteiner {
+    display: grid;
+    gap: 10px 20px;
+    width: 700px;
+    border: 1px solid black;
+
+    height: 1000px;
+
+    /* grid-template: auto / 1fr 1fr 1fr; */
+    grid-template: 500px 300px / 100px 350px 100px;
+    /* justify-items: center; /*start end center stretch
+    align-items: flex-start; */
+    /* place-items: end center; первое за align-items второе justify-items */
+
+
+    /* justify-content: space-around; */    /* start end center stretch apace-around space-between space-evenly; */
+    /* align-content: center; */
+
+    place-content: center space-around ;
+  
+}
+
+.conteiner > * {
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+header {
+    background-color: greenyellow;
+}
+
+article {
+    background-color: rgb(47, 255, 241);
+}
+
+aside {
+    background-color: rgb(210, 47, 255);
+    align-self: start;
+    justify-self: start;
+}
+
+footer {
+    background-color: rgb(241, 255, 47);
+}
