@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        body {
+    margin: 0;
+    background-color: rgb(228, 227, 227);
+}
+
+.container {
+    color: white;
+    background-color: silver;
+    display: grid;
+    gap: 10px 10px;
+    margin: 30px;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+p {
+    font-size: 1rem;
+}
+
+b {
+    font-size: 1.1rem;
+}
+
+b:hover {
+    color: rgb(14, 45, 57);
+}
+
+.item {
+    margin: 10px;
+    background-color: rgb(27, 211, 218);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.item:hover {
+    background-color: rgb(104, 211, 215);
+    color: rgb(52, 53, 50);
+}
+
+
+
+.helptip {
+    /* padding: 3px 5px;
+    margin: 5px; */
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative; /* Важно!
+    Размещать абсолютное позиционирование внутри
+    относительно данного тега */
+    width: auto;
+    color: black;
+}
+.helptip:hover {
+    background: #fff;
+}
+.helptip div,
+.helptip span {
+    padding: 8px;
+    margin: 5px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    position: absolute; /* Важно!
+    Абсолютное позиционирование */
+    display: none; /* Важно! Скрыть */
+    left: 5px;
+    bottom: 5px;
+    z-index: 99; /* Важно!
+    Всплывающие подсказки всегда выше
+    нижеследующих элементов */
+    min-width: 200px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    cursor: default;
+}
+.helptip div:hover,
+.helptip span:hover {
+    background: #fff;
+}
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <div class="item">1. <b>grid item = block</b>
+            <hr>
+        <ul>
+            <li><p>Элементы грида принудительно получают
+                <b>display: block;</b>
+            </p></li>
+            <li><p>Попытки установить display как 
+                <b>inline-block</b> или <b>table-cell</b> ни к чему не 
+                приведут
+            </p></li>
+            <li><p>Свойства <b>float, vertical-align</b>
+                и <b>column-*</b> работать не будут
+            </p></li>
+            <li><p>Допустимо использование других блочных отображений
+            </p></li>
+        </ul>
+    </div>
+        <div class="item">2. <b>Фракции по вертикали</b>
+            <hr>
+            <ul>
+                <li><p>
+                    Возможны только когда у grid-контейнера
+                    есть свойство <b>height</b>
+                </p>
+                </li>
+                <li><p>
+                    В противном случае значение будет работать как <b>'auto'</b>
+                </p></li>
+            </ul>
+            </div>
+        <div class="item">3.<b>Доступные свойства для grid-контейнера</b>
+            <hr>
+            <ul></ul>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>display: <i>grid;</i></strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            Мы создаём grid контейнер, объявляя на элементе display:
+                             grid или display: inline-grid. Как только мы это сделаем,
+                              все прямые потомки этого элемента станут элементами сетки.
+                        </span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-template-columns</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            определяет имена линий
+                             и размеры грид-колонок <br>
+                            <a href="https://developer.mozilla.org/ru/docs/Web/CSS/grid-template-columns">
+                                подробнее
+                            </a></span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-template-rows</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            определяет имена линий и размеры полос грид-рядов <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/grid-template-rows">
+                            подробнее
+                        </a></span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-template-areas</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            создаёт грид-области путём размещения
+                             именованных ячеек в грид-раскладке.<br>
+                             grid-template-areas: <br>
+                             <a href="https://developer.mozilla.org/ru/docs/Web/CSS/grid-template-areas">
+                                подробнее
+                             </a>
+                            </span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-template</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            grid-template определяет колонки, ряды и области грид-раскладки <br>
+                            <a href="https://developer.mozilla.org/ru/docs/Web/CSS/grid-template">
+                                подробнее
+                            </a>
+
+                        </span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-auto-columns</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает размер неявно созданной дорожки столбца сетки или шаблона дорожек.
+                        <br>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns">
+                            подробнее
+                        </a>
+
+                        </span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-aoto-rows</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает размер неявно созданной дорожки строки сетки или шаблона дорожек.
+                        <br>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows">подробнее</a>
+                    </span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            grid является сокращённой формой записи, которая устанавливает значения для всех явных свойств сетки (grid)
+                        <br>
+                        <a href="">подробнее</a>
+                        </span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-auto-flow</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            управляет поведением автоматически размещаемых элементов, точно указывая, как они попадают в сетку.
+                            <br>
+                            <a href="https://developer.mozilla.org/ru/docs/Web/CSS/grid-auto-flow">подробнее</a>
+                        </span></span>
+                    </b>
+                </li>
+
+            <hr>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>gap</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        gap CSS задаёт отступы между столбцами и строками, 
+                        а не вдоль края контейнера сетки. Является сокращением для свойств
+                         row-gap и column-gap.
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/gap">подробнее</a>
+                    </span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>grid-column-gap</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        column-gap (grid-column-gap)
+                        устанавливает промежуток (интервал) между колонками.
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/column-gap">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>grid-row-gap</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        устанавливает промежуток (интервал) между рядами.
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/row-gap">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>justify-items</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        определяет атрибут по умолчанию justify-self для всех элементов
+                         блока, предоставляя всем им способ выравнивания по умолчанию каждого
+                          блока вдоль соответствующей оси.
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/justify-items">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>align-items</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        выравнивает flex-элементы текущей flex-линии таким же образом, 
+                        как и justify-content, но в перпендикулярном направлении.
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/align-items">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>place-items</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        позволяет одновременно выравнивать элементы и колонки,
+                         и ряда (т.е. по свойствам align-items и justify-items) 
+                         в соответствующей системе раскладки, такой как гриды 
+                         или флексбоксы. Если задано одно значение, оно используется
+                          для выравнивания и в колонке, и в ряду.
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/place-items">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>justify-content</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        определяет, как браузер распределяет пространство между и
+                         вокруг элементов контента вдоль главной оси flex контейнера,
+                          или вдоль строчной оси grid контейнера.
+
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/justify-content">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>align-content</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        align-content устанавливает распределение пространства между 
+                        и вокруг элементами контента вдоль поперечной оси flexbox 
+                        контейнера или вдоль блочной оси grid контейнера.
+
+                        <br>
+                        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/align-content">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>place-content</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        позволяет одновременно выравнивать содержимое как по блочному,
+                         так и по встроенному направлению (т. е. по свойствам и ) в
+                          соответствующей системе компоновки, такой как
+                         Grid или Flexbox .place-content align-contentjustify-content
+                        <br>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-content">подробнее</a></span></span>
+                </b>
+            </li>
+            </ul>
+        </div>
+        <div class="item">4. <b>доступные свойства для grid items</b>
+        <hr>
+            <ul>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-column-start</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает начальную позицию элемента сетки в столбце сетки, 
+                            добавляя линию, диапазон или ничего (автоматически) к его размещению в сетке. 
+                            Эта начальная позиция определяет начальный край области сетки .
+                            <br>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start">подробнее</a></span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-column-end</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает конечную позицию элемента сетки в столбце
+                             сетки, добавляя линию, диапазон или ничего (автоматически)
+                              к его размещению в сетке,
+                             тем самым указывая край блока его области сетки .
+                            <br>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end">подробнее</a></span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-row-start</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает начальную позицию элемента сетки в строке сетки,
+                             добавляя линию, интервал или ничего (автоматически) к его
+                              размещению в сетке,
+                             тем самым указывая начальный край области сетки
+                            <br>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start">подробнее</a></span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-row-end</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает конечную позицию элемента сетки в строке сетки,
+                             добавляя линию, диапазон или ничего (автоматически) к его размещению в сетке,
+                             тем самым указывая встроенный край его области сетки .
+                            <br>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end">подробнее</a></span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-column</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает размер и положение элемента сетки в столбце сетки ,
+                             добавляя линию, диапазон или ничего (автоматически) к его размещению в сетке, 
+                            тем самым указывая начальный и конечный края его области сетки .
+                            <br>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column">подробнее</a></span></span>
+                    </b>
+                </li>
+                <li onclick="helptipx()">
+                    <b class="helptip" onclick="helptip(this)" title="Нажать">
+                        <strong>grid-row</strong> 
+                        <span title="Нажмите, чтобы закрыть">
+                            указывает размер и положение элемента сетки в строке сетки ,
+                             добавляя линию, диапазон или ничего (автоматически) к его размещению в сетке,
+                             тем самым указывая начальный и конечный края области сетки .
+                            <br>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row">подробнее</a></span></span>
+                    </b>
+                </li>
+
+            <hr>
+
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>grid-area</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        указывает размер и положение элемента сетки в сетке ,
+                         добавляя линию, диапазон или ничего (автоматически) к его размещению 
+                        в сетке, тем самым указывая края его области сетки .
+                        <br>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>justify-self</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        задает способ выравнивания 
+                        поля внутри контейнера выравнивания вдоль соответствующей оси.
+                        <br>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>align-self</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        переопределяет значение элемента сетки или гибкого элемента .
+                         В Grid он выравнивает элемент внутри области сетки . Во Flexbox он
+                         выравнивает элемент по поперечной оси .align-self align-items
+                        <br>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self">подробнее</a></span></span>
+                </b>
+            </li>
+            <li onclick="helptipx()">
+                <b class="helptip" onclick="helptip(this)" title="Нажать">
+                    <strong>place-self</strong> 
+                    <span title="Нажмите, чтобы закрыть">
+                        позволяет вам выравнивать отдельный элемент одновременно как
+                         в блочном, так и в линейном направлениях (т. е. свойства и )
+                          в соответствующей системе макета, такой как Grid или Flexbox .
+                           Если второе значение отсутствует, для него
+                         также используется первое значение.place-self align-selfjustify-self
+                        <br>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-self">подробнее</a></span></span>
+                </b>
+            </li>
+
+            </ul>
+        </div>
+    
+    </div>
+
+    <script>
+        // Основная функция, передаем в нее обрабатываемый тег
+// или this (для текущего тега)
+function helptip(t) {
+    // Разрешаем закрытие подсказок
+    // Создаем постоянную переменную этой функции для этих целей
+    // Условимся: если ноль, то можно закрывать, а если единица, то нельзя
+    helptip.v = 0;
+    // Берем последний дочерний тег
+    var b = t.children[(t.children.length-1)];
+    // Если открыт, то закрываем
+    if (b.style.display=="block") helptipx();
+    else {
+        // Закрываем все
+        helptipx();
+        // Открываем текущий
+        b.style.display = "block";
+        // Запрещаем закрытие подсказки вызванного последующими событиями
+        helptip.v = 1;
+    }
+}
+// Функция закрывает все подсказки
+function helptipx() {
+    // Если было нажатие для открытия подсказки, то закрывать нельзя
+    // Поэтому проверяем:
+    if (helptip.v==1) {
+        // Разрешаем закрытие в будущем
+        helptip.v = 0;
+        // И выходим
+        return;
+    }
+    // Выбираем все теги с классом .helptip
+    var s = document.querySelectorAll(".helptip");
+    // и перебираем их циклом
+    for (var i=0; i < s.length; i++) {
+        // Скрываем последний дочерний тег
+        s[i].children[(s[i].children.length-1)].style.display = "none";
+    }
+}
+    </script>
+</body>
+</html>
